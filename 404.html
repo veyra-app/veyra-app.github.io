@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veyra</title>
+<script>
+(function () {
+  var appStore = "";
+  var play = "";
+  var shared = /^\/s\/[0-9a-f]{48}\/?$/.test(location.pathname);
+  if (!shared) { location.replace('/'); return; }
+  // Testing in Expo Go: open the link there.
+  var expo = /^#open=(.+)$/.exec(location.hash);
+  var to = expo ? decodeURIComponent(expo[1]) : '';
+  if (to.indexOf("exp://u.expo.dev/fb05a8c9-eebf-470b-9a74-9fd3bf06d6ba/") === 0 && to.indexOf('/share/' + location.pathname.slice(3, 51)) > 0) {
+    location.replace(to);
+    return;
+  }
+  // Someone sent them something, and they don't have Veyra yet.
+  var android = /android/i.test(navigator.userAgent);
+  var store = android ? play : appStore;
+  if (store) location.replace(store);
+})();
+</script>
+<style>
+body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+  background:#F6F0E9; color:#3A241B; font:17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-align:center; padding:24px; box-sizing:border-box; }
+h1 { font-family:Georgia, serif; font-weight:normal; font-size:30px; margin:0 0 8px; }
+p { color:#6B574B; margin:0; max-width:340px; }
+</style>
+</head>
+<body>
+<main>
+<h1>Someone sent you something</h1>
+<p>It's waiting for you in Veyra. Veyra is coming soon to the App Store.</p>
+</main>
+</body>
+</html>
