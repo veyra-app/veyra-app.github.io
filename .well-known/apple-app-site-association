@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "H47A88WF36.com.veyramemories.app"
+        ],
+        "components": [
+          {
+            "/": "/s/*",
+            "comment": "Share links"
+          }
+        ]
+      }
+    ]
+  }
+}
